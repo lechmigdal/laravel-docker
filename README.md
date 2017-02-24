@@ -2,11 +2,11 @@
 
 All what is required for quickly building of docker containers with laravel/composer.
 
-Using only standard images for php5 +  apache + laravel + composer base setup. 
+This is a base setup that uses only official images/distributions of php5, apache, laravel and composer. 
 
 # Additional activities to consider
 
-You may want to (e.g. using `docker -v`)
+You may want to map the following folders (e.g. using `docker -v`)
 - Map the `/var/log/apache2` to an external folder so that docs are stored outside of container
 - Map `/var/www/laravel/{app,public,vendor}/` folders for your application specific code
 - Map `/etc/ssl` to use custom SSL keys

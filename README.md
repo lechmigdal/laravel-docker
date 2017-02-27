@@ -4,6 +4,8 @@ All what is required for quickly building of docker containers with laravel/comp
 
 This is a base setup that uses only official images/distributions of php5, apache, laravel and composer. 
 
+For a complete app setup, copying of application files is included. If you don't like it and want to use mapping approach - just remove those lines.
+
 # Additional activities to consider
 
 You may want to map the following folders (e.g. using `docker -v`)
@@ -12,5 +14,3 @@ You may want to map the following folders (e.g. using `docker -v`)
 - Map `/etc/ssl` to use custom SSL keys
 
 More information about folders mapping - https://docs.docker.com/engine/tutorials/dockervolumes/
-
-Another option is to customize the Dockerfile and put your SSL keys and application code directly into the container.

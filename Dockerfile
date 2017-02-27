@@ -21,14 +21,16 @@ RUN /usr/sbin/a2dissite '*' && /usr/sbin/a2ensite 000-laravel 001-laravel-ssl
 
 RUN /usr/local/bin/composer create-project laravel/laravel /var/www/laravel --prefer-dist
 
-COPY app/ /var/www/laravel/app/
-COPY public/ /var/www/laravel/public/
-COPY bootstrap/ /var/www/laravel/bootstrap/
-COPY config/ /var/www/laravel/config/
-COPY resources/ /var/www/laravel/resources/
-COPY routes/ /var/www/laravel/routes/
-COPY storage/ /var/www/laravel/storage/
-COPY composer.json /var/www/laravel/composer.json
+# Below are app copying commands. Uncomment them depending on your needs. They assume Dockerfile is stored in the laravel folder.
+#COPY app/ /var/www/laravel/app/
+#COPY public/ /var/www/laravel/public/
+#COPY bootstrap/ /var/www/laravel/bootstrap/
+#COPY config/ /var/www/laravel/config/
+#COPY resources/ /var/www/laravel/resources/
+#COPY routes/ /var/www/laravel/routes/
+#COPY storage/ /var/www/laravel/storage/
+#COPY composer.json /var/www/laravel/composer.json
+# End of app copying commands
 
 RUN /usr/local/bin/composer update --working-dir /var/www/laravel
 

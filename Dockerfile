@@ -20,6 +20,20 @@ ADD https://raw.githubusercontent.com/lechmigdal/laravel-docker/master/001-larav
 RUN /usr/sbin/a2dissite '*' && /usr/sbin/a2ensite 000-laravel 001-laravel-ssl
 
 RUN /usr/local/bin/composer create-project laravel/laravel /var/www/laravel --prefer-dist
+
+COPY app/ /var/www/laravel/app/
+COPY public/ /var/www/laravel/public/
+COPY bootstrap/ /var/www/laravel/bootstrap/
+COPY config/ /var/www/laravel/config/
+COPY resources/ /var/www/laravel/resources/
+COPY routes/ /var/www/laravel/routes/
+COPY storage/ /var/www/laravel/storage/
+COPY composer.json /var/www/laravel/composer.json
+
+RUN /usr/local/bin/composer update --working-dir /var/www/laravel
+
+RUN service apache2 restart
+
 RUN /bin/chown www-data:www-data -R /var/www/laravel/storage /var/www/laravel/bootstrap/cache
 
 EXPOSE 80
